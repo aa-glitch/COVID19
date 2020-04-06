@@ -1,5 +1,5 @@
-let p  = document.getElementById('demo')
-let input = document.getElementById('pais')
+
+let input = document.getElementById('userIn')
 
 const API = 'https://api.covid19api.com/summary'
 
@@ -13,17 +13,12 @@ function checKey(e) {
     }
 }
 
-async function getData(country) {
+async function getData(userIn) {
     let response = await fetch(API)
     let data = await response.json()
 
-    let paises = data.Countries
-    let co = paises.filter(pais => pais.Slug === country)
-    const muertes = co[0].TotalDeaths
-    p.textContent = muertes
+    let countries = data.Countries
+    let results = countries.filter(country => country.Slug === userIn)
+    console.log(results)
 
 }
-
-
-
-// getData()
