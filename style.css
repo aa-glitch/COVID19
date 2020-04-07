@@ -47,6 +47,7 @@ body {
     width: 80%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .results__card {
@@ -57,8 +58,7 @@ body {
     background-color: #222;
     border-radius: 10px;
     /* border: 2px solid #000000; */
-    transition: all 1s;
-
+    transition: box-shadow 0.25s, opacity 0.6s, height 0.6s;
     opacity: 0;
     height: 0;
 }
@@ -76,10 +76,24 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .results__info p {
     color: #ffffff;
     margin-top: 20px;
 }
 
+@media screen and (max-width: 800px) {
+    .results {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .results__card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .results__card.show {
+        height: 200px;
+    }
+}
