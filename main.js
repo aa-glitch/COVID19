@@ -26,15 +26,21 @@ async function getData(userIn) {
 
     let countries = data.Countries
     let results = countries.filter(country => country.Slug === userIn)
-    console.log(results)
+    
+    if (results.length === 0) {
+        swal('No country found', 'Watch your typing', 'warning')
 
-    confirmed.textContent = results[0].TotalConfirmed
-    deaths.textContent = results[0].TotalDeaths
-    recovered.textContent = results[0].TotalRecovered
+    } else {
+        confirmed.textContent = results[0].TotalConfirmed
+        deaths.textContent = results[0].TotalDeaths
+        recovered.textContent = results[0].TotalRecovered
+        cards[0].classList.add('show')
+        cards[1].classList.add('show')
+        cards[2].classList.add('show')
 
-    cards[0].classList.add('show')
-    cards[1].classList.add('show')
-    cards[2].classList.add('show')
+    }
+
+
 
 
 
