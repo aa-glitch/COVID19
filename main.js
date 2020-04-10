@@ -1,11 +1,15 @@
 
 let input = document.getElementById('userIn')
 
-let confirmed = document.getElementById('confirmed')
-let deaths = document.getElementById('deaths')
-let recovered = document.getElementById('recovered')
+const confirmed = document.getElementById('confirmed')
+const deaths = document.getElementById('deaths')
+const recovered = document.getElementById('recovered')
 
-let cards = document.querySelectorAll('.results__card')
+const newCases = document.getElementById('newCases')
+const newDeaths = document.getElementById('newDeaths')
+const newRecov = document.getElementById('newRecov')
+
+const cards = document.querySelectorAll('.results__card')
 
 
 const API = 'https://api.covid19api.com/summary'
@@ -25,18 +29,21 @@ async function getData(userIn) {
     let data = await response.json()
 
     let countries = data.Countries
-    let results = countries.filter(country => country.Slug === userIn)
+    let result = countries.filter(country => country.Slug === userIn)
     
-    if (results.length === 0) {
+    if (result.length === 0) {
         swal('No country found', 'Watch your typing', 'warning')
 
     } else {
-        confirmed.textContent = results[0].TotalConfirmed
-        deaths.textContent = results[0].TotalDeaths
-        recovered.textContent = results[0].TotalRecovered
-        cards[0].classList.add('show')
-        cards[1].classList.add('show')
-        cards[2].classList.add('show')
+        confirmed.textContent = result[0].TotalConfirmed
+        deaths.textContent = result[0].TotalDeaths
+        recovered.textContent = result[0].TotalRecovered
+
+        newCases.textContent = `New Cases: ${result[0].NewConfirmed}`
+        newDeaths.textContent = `New Deaths: ${result[0].NewDeaths}`
+        newRecov.textContent = `New Recovered: ${result[0].NewRecovered}`
+
+        cards.forEach(card => card.classList.add('show'))
 
     }
 

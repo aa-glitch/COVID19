@@ -56,9 +56,9 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #222;
-    border-radius: 10px;
+    border-radius: 20px;
     /* border: 2px solid #000000; */
-    transition: box-shadow 0.25s, opacity 0.6s, height 0.6s;
+    transition: box-shadow 0.4s, opacity 0.6s, height 0.6s;
     opacity: 0;
     height: 0;
 }
@@ -69,9 +69,11 @@ body {
 }
 
 .results__card:hover {
-    box-shadow: rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.2) 0px -10px 20px;
+    box-shadow: 20px -20px 50px #1b1b1b, 
+                -20px 20px 50px #292929;
 }
 .results__info {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,6 +83,23 @@ body {
 .results__info p {
     color: #ffffff;
     margin-top: 20px;
+}
+
+.results__info span {
+    margin-top: 40px;
+    font-size: 1.2rem;
+}
+
+#newCases {
+    color: slateblue;
+}
+
+#newDeaths {
+    color: tomato;
+}
+
+#newRecov {
+    color: teal;
 }
 
 @media screen and (max-width: 800px) {
@@ -93,7 +112,5 @@ body {
         width: 100%;
         margin-bottom: 20px;
     }
-    .results__card.show {
-        height: 200px;
-    }
+    
 }
