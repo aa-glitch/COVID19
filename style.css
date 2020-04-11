@@ -56,7 +56,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #222;
-    border-radius: 20px;
+    border-radius: 40px;
     /* border: 2px solid #000000; */
     transition: box-shadow 0.4s, opacity 0.6s, height 0.6s;
     opacity: 0;
@@ -102,6 +102,63 @@ body {
     color: teal;
 }
 
+h2.guidlines {
+    color: slateblue;
+    margin-top: 50px;
+}
+.advices {
+    position: relative;
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: minmax(100px, auto);
+    margin: 40px;
+    grid-auto-flow: dense;
+    grid-gap: 10px;
+}
+
+.advices__box {
+    color: #fff;
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    vertical-align: middle;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.advices__box:hover {
+    background-color: #e91e63;
+}
+
+.advices__content img {
+    margin-bottom: 10px;
+    max-width: 100px;
+}
+.advices__box:nth-of-type(1) {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.advices__box:nth-of-type(2) {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.advices__box:nth-of-type(4) {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.advices__box:nth-of-type(5) {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+
 @media screen and (max-width: 800px) {
     .results {
         flex-direction: column;
@@ -111,6 +168,15 @@ body {
     .results__card {
         width: 100%;
         margin-bottom: 20px;
+    }
+
+    .advices {
+        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    }
+
+    .advices__box {
+        grid-column: unset !important;
+        grid-row: unset !important;
     }
     
 }

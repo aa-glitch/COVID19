@@ -47,8 +47,4 @@ async function getData(userIn) {
 
     }
 
-
-
-
-
 }
