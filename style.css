@@ -16,7 +16,7 @@ body {
 
 .search {
     color: slateblue;
-    width: 80%;
+    width: 90%;
     max-width: 1100px;
     text-align: center;
     padding: 30px;
@@ -44,23 +44,23 @@ body {
 }
 
 .results {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
 }
 
 .results__card {
-    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #222;
-    border-radius: 40px;
-    /* border: 2px solid #000000; */
-    transition: box-shadow 0.4s, opacity 0.6s, height 0.6s;
+    transition: opacity 1s, height 1s;
     opacity: 0;
     height: 0;
+    position: relative;
 }
 
 .results__card.show {
@@ -68,17 +68,38 @@ body {
     height: 300px;
 }
 
-.results__card:hover {
-    box-shadow: 20px -20px 50px #1b1b1b, 
-                -20px 20px 50px #292929;
+.results__card:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #e91e63;
+    height: 5px;
+    width: 0;
+    opacity: 0;
+    transition: 0.5s;
 }
+
+.results__card:hover::before {
+    opacity: 1;
+    width: 100%;
+}
+
+
 .results__info {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
+}
+
+.results__info h3 {
+    /* background-color: #30475e; */
+    color: #30475e;
+    padding: 5px;
 }
 .results__info p {
     color: #ffffff;
@@ -105,6 +126,7 @@ body {
 h2.guidlines {
     color: slateblue;
     margin-top: 50px;
+    text-transform: uppercase;
 }
 .advices {
     position: relative;
@@ -119,7 +141,7 @@ h2.guidlines {
 
 .advices__box {
     color: #fff;
-    background-color: #333;
+    background-color: #222831;
     padding: 20px;
     text-align: center;
     vertical-align: middle;
@@ -138,6 +160,78 @@ h2.guidlines {
     margin-bottom: 10px;
     max-width: 100px;
 }
+.habits {
+    width: 100%;
+}
+.habits h2 {
+    text-align: center;
+    text-transform: uppercase;
+    color: slateblue;
+    margin-bottom: 20px;
+}
+.habits__container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-items: center;
+    gap: 20px;
+}
+
+.habits__face {
+    min-height: 200px;
+    transition: 0.5s;
+}
+
+.habits__face--face1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100px);
+    background-color: #222831;
+    z-index: 1;
+    position: relative;
+}
+
+.habits__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.habits__content img {
+    max-width: 100px;
+    color: #fff;
+}
+
+.habits__content h3 {
+    text-align: center;
+    margin-left: 5px;
+}
+
+.habits__face--face2 {
+    background-color: #ececec;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    transform: translateY(-100px);
+
+}
+
+.habits__card:hover .habits__face--face1 {
+    transform: translateY(0);
+    background-color: #e91e63;
+    color: #fff;
+}
+
+.habits__card:hover .habits__face--face2 {
+    transform: translateY(0);
+
+}
+
 
 @media screen and (min-width: 870px) {
     .cLevel-2 {
@@ -151,18 +245,4 @@ h2.guidlines {
     .rLevel-2 {
         grid-row: span 2 / auto;
     }
-}
-
-
-@media screen and (max-width: 800px) {
-    .results {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .results__card {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    
 }
