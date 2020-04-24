@@ -32,15 +32,14 @@ body {
     width: 100%;
     height: 50px;
     margin-top: 10px;
-    padding: 20px;
-    border: 2px solid slateblue;
-    border-radius: 10px;
-    background-color: rgba(255,255,255,0.1);
+    padding: 10px;
+    border: 2px solid slateblue;    
+    background-color: #30475e;
+    /* background-color: rgba(255,255,255,0.1); */
     outline: none;
     color: snow;
-    font-size: 1.3rem;
+    font-size: 20px;
     font-family: 'Rubik';
-
 }
 
 .results {
@@ -163,6 +162,12 @@ h2.guidlines {
 .habits {
     width: 100%;
 }
+
+.habits > h3 {
+    text-align: center;
+    color: snow;
+    margin-bottom: 10px;
+}
 .habits h2 {
     text-align: center;
     text-transform: uppercase;
@@ -189,7 +194,7 @@ h2.guidlines {
     justify-content: center;
     align-items: center;
     transform: translateY(100px);
-    background-color: #222831;
+    background-color: #30475e;
     z-index: 1;
     position: relative;
 }
@@ -202,7 +207,6 @@ h2.guidlines {
 }
 .habits__content img {
     max-width: 100px;
-    color: #fff;
 }
 
 .habits__content h3 {
@@ -211,7 +215,7 @@ h2.guidlines {
 }
 
 .habits__face--face2 {
-    background-color: #ececec;
+    background-color: snow;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -224,7 +228,7 @@ h2.guidlines {
 .habits__card:hover .habits__face--face1 {
     transform: translateY(0);
     background-color: #e91e63;
-    color: #fff;
+    color: snow;
 }
 
 .habits__card:hover .habits__face--face2 {
