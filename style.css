@@ -67,24 +67,6 @@ body {
     height: 300px;
 }
 
-.results__card:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: #e91e63;
-    height: 5px;
-    width: 0;
-    opacity: 0;
-    transition: 0.5s;
-}
-
-.results__card:hover::before {
-    opacity: 1;
-    width: 100%;
-}
-
-
 .results__info {
     height: 100%;
     width: 100%;
@@ -96,8 +78,7 @@ body {
 }
 
 .results__info h3 {
-    /* background-color: #30475e; */
-    color: #30475e;
+    color: slateblue;
     padding: 5px;
 }
 .results__info p {
@@ -111,7 +92,7 @@ body {
 }
 
 #newCases {
-    color: slateblue;
+    color: steelblue;
 }
 
 #newDeaths {
@@ -293,6 +274,7 @@ footer {
 .footer__form input[type='submit'] {
     background-color: #30475e;
     border: none;
+    cursor: pointer;
 }
 
 .footer__quote {
@@ -304,7 +286,7 @@ footer {
     color: snow;
 }
 
-.footer__quote q {
+.footer__quote p {
     width: 70%;
 }
 
@@ -344,7 +326,7 @@ footer {
         align-items: center;
     }
 
-    .footer__quote q {
+    .footer__quote p {
         width: 100%;
         margin: 30px auto;
         text-align: center;

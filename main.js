@@ -16,35 +16,40 @@ const API = 'https://api.covid19api.com/summary'
 
 createOptions()
 
-function createOptions() {
-    fetch(API).then(response => response.json())
-        .then(data => {
-            const countries = data.Countries
-            const list = countries.map(country => country.Country)
+async function createOptions() {
 
-            list.forEach(country => {
-                const content = country
-                const option = document.createElement('option')
-                option.textContent = content
-                input.add(option)
-            })
+    try {
+
+        const response = await fetch(API)
+        const data = await response.json()
+        
+        const countries = data.Countries
+        const list = countries.map(country => country.Country)
+        list.forEach(country => {
+            const content = country
+            const option = document.createElement('option')
+            option.textContent = content
+            input.add(option)
         })
-        .catch(err => console.log(err))
+    }
+
+    catch(err) {
+        console.error(err)
+    }
+
 }
 
 
-
 input.addEventListener('input', () => {
-    console.log(input.value)
+    getData(input.value)
 })
 
 
 async function getData(userIn) {
-    let response = await fetch(API)
-    let data = await response.json()
-
-    let countries = data.Countries
-    let result = countries.filter(country => country.Slug === userIn)
+    const response = await fetch(API)
+    const data = await response.json()
+    const countries = data.Countries
+    let result = countries.filter(country => country.Country === userIn)
     
     confirmed.textContent = result[0].TotalConfirmed
     deaths.textContent = result[0].TotalDeaths
