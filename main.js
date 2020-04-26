@@ -14,7 +14,7 @@ const cards = document.querySelectorAll('.results__card')
 
 const API = 'https://api.covid19api.com/summary'
 
-createOptions()
+document.addEventListener('DOMContentLoaded', createOptions)
 
 async function createOptions() {
 
@@ -23,7 +23,7 @@ async function createOptions() {
         const response = await fetch(API)
         const data = await response.json()
         
-        const countries = data.Countries
+        countries = data.Countries  //Global Variable
         const list = countries.map(country => country.Country)
         list.forEach(country => {
             const content = country
@@ -45,12 +45,10 @@ input.addEventListener('input', () => {
 })
 
 
-async function getData(userIn) {
-    const response = await fetch(API)
-    const data = await response.json()
-    const countries = data.Countries
-    let result = countries.filter(country => country.Country === userIn)
-    
+function getData(userIn) {
+
+    //We only call once to the API to get the data
+    const result = countries.filter(country => country.Country === userIn)
     confirmed.textContent = result[0].TotalConfirmed
     deaths.textContent = result[0].TotalDeaths
     recovered.textContent = result[0].TotalRecovered
@@ -60,5 +58,11 @@ async function getData(userIn) {
     newRecov.textContent = `New Recovered: ${result[0].NewRecovered}`
 
     cards.forEach(card => card.classList.add('show'))
+
+    cards.forEach(card => addEventListener('animationend', () => {
+        card.style.opacity = '1'
+        card.style.height = '300px'
+        card.classList.remove('show')
+    }))
 
 }
