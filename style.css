@@ -56,15 +56,35 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #222;
-    transition: opacity 1s, height 1s;
     opacity: 0;
     height: 0;
     position: relative;
 }
 
 .results__card.show {
-    opacity: 1;
-    height: 300px;
+    animation-name: showing;
+    animation-duration: 1s;
+    animation-delay: 0;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
+@keyframes showing {
+    0% {
+        transform: translateX(-900px);
+        opacity: 0;
+        height: 0;
+    }
+    50% {
+        height: 300px;
+    }
+    100% {
+
+        transform: translateX(0);
+        opacity: 1;
+        height: 300px;
+
+    }
 }
 
 .results__info {
