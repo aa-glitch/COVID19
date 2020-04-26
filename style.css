@@ -14,6 +14,20 @@ body {
     align-items: center;
 }
 
+header {
+    width: 100%;
+    background-color: slateblue;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.header__logo {
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 .search {
     color: slateblue;
     width: 90%;
