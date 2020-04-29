@@ -16,3 +16,5 @@ And you will also find a form submition where if you enter you email, you will r
 _Stay safe and healthy but also stay hungry, stay foolish_
 
 **Because even though the world is on pause, you don't have to be**
+
+To go to the website click [here](https://blohshtracker.netlify.app/)
