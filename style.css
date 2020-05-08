@@ -348,6 +348,10 @@ footer {
 }
 
 @media screen and (max-width: 870px) {
+    .advices {
+        margin: 10px;
+    }
+    
     footer {
         flex-direction: column;
     }
@@ -364,5 +368,13 @@ footer {
         width: 100%;
         margin: 30px auto;
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 341px) {
+    .results {
+        width: 100%;
+        margin: 0;
+        grid-template-columns: 1fr;
     }
 }

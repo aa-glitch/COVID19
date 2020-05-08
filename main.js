@@ -22,7 +22,7 @@ async function createOptions() {
 
         const response = await fetch(API)
         const data = await response.json()
-        
+        globalInfo = data.Global  //global variable
         countries = data.Countries  //Global Variable
         const list = countries.map(country => country.Country)
         list.forEach(country => {
@@ -47,22 +47,45 @@ input.addEventListener('input', () => {
 
 function getData(userIn) {
 
-    //We only call once to the API to get the data
-    const result = countries.filter(country => country.Country === userIn)
-    confirmed.textContent = result[0].TotalConfirmed
-    deaths.textContent = result[0].TotalDeaths
-    recovered.textContent = result[0].TotalRecovered
+    if (userIn == 'Global') {
 
-    newCases.textContent = `New Cases: ${result[0].NewConfirmed}`
-    newDeaths.textContent = `New Deaths: ${result[0].NewDeaths}`
-    newRecov.textContent = `New Recovered: ${result[0].NewRecovered}`
+        confirmed.textContent = globalInfo.TotalConfirmed
+        deaths.textContent = globalInfo.TotalDeaths
+        recovered.textContent = globalInfo.TotalRecovered
 
-    cards.forEach(card => card.classList.add('show'))
+        newCases.textContent = `New Cases: ${globalInfo.NewConfirmed}`
+        newDeaths.textContent = `New Deaths: ${globalInfo.NewDeaths}`
+        newRecov.textContent = `New Recovered: ${globalInfo.NewRecovered}`
 
-    cards.forEach(card => addEventListener('animationend', () => {
-        card.style.opacity = '1'
-        card.style.height = '300px'
-        card.classList.remove('show')
-    }))
+        cards.forEach(card => card.classList.add('show'))
+
+        cards.forEach(card => addEventListener('animationend', () => {
+            card.style.opacity = '1'
+            card.style.height = '300px'
+            card.classList.remove('show')
+         }))
+
+
+    } else {
+        //We only call once to the API to get the data
+        const result = countries.filter(country => country.Country === userIn)
+        console.log(result)
+        confirmed.textContent = result[0].TotalConfirmed
+        deaths.textContent = result[0].TotalDeaths
+        recovered.textContent = result[0].TotalRecovered
+    
+        newCases.textContent = `New Cases: ${result[0].NewConfirmed}`
+        newDeaths.textContent = `New Deaths: ${result[0].NewDeaths}`
+        newRecov.textContent = `New Recovered: ${result[0].NewRecovered}`
+    
+        cards.forEach(card => card.classList.add('show'))
+    
+        cards.forEach(card => addEventListener('animationend', () => {
+            card.style.opacity = '1'
+            card.style.height = '300px'
+            card.classList.remove('show')
+        }))
+
+    }
 
 }
